@@ -37,10 +37,12 @@ console.log(
         isSign = true;
       } else if (buttonText == "=") {
         checkForBracketMulti();
-        if (parseFloat(screen.value) < 0) {
-          screen.classList.add("negative");
-        } else {
-          screen.classList.remove("negative");
+        if (safeEval(screenValue) !== undefined) {
+          if (parseFloat(screen.value) < 0) {
+            screen.classList.add("negative");
+          } else {
+            screen.classList.remove("negative");
+          }
         }
       } else if(buttonText=="(" || buttonText==")") {
         if(flag==1){
